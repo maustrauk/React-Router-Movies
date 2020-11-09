@@ -11,12 +11,13 @@ export default function MovieList(props) {
   );
 }
 
+
 function MovieDetails(props) {
   const { title, director, metascore, id } = props.movie;
 
   return (
     <div className="movie-card">
-      <Link to={`/movies/${id}`}>
+      <Link to={`/movies/${id}`} className="linkComponent">
         <h2>{title}</h2>
         <div className="movie-director">
           Director: <em>{director}</em>
