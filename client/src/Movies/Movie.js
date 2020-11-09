@@ -4,6 +4,8 @@ import {useParams} from 'react-router-dom';
 import MovieCard from './MovieCard';
 
 export default function Movie(props) {
+  const {addToSavedList} = props;
+
   const [movie, setMovie] = useState();
 
   let {id} = useParams();
@@ -25,7 +27,7 @@ export default function Movie(props) {
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { }
+  const saveMovie = evt => {addToSavedList(movie.id)}
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -35,7 +37,7 @@ export default function Movie(props) {
   return (
     <div className="save-wrapper">
       <MovieCard starOn={true} movie={movie}/>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={evt => saveMovie(evt)}>Save</div>
     </div>
   );
 }

@@ -12,6 +12,15 @@ export default function MovieCard (props) {
     });
   }
 
+  const Stars = (props) => {
+    const {starList} = props;
+    return (
+      <div>
+        <h3>Stars:</h3>
+        {starList()}
+      </div>
+    );
+  }
 
   return (
   <div className="movie-card">
@@ -28,12 +37,3 @@ export default function MovieCard (props) {
     </div>);
 }
 
-const Stars = (props) => {
-  const {starList} = props;
-  return (
-    <div>
-      <h3>Stars:</h3>
-      {starList()}
-    </div>
-  );
-}
